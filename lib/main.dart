@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'math_tutor_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'splash_screen.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure bindings are initialized
-  await dotenv.load(fileName: ".env"); // Load environment variables
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(); // Load environment variables
   runApp(ProviderScope(child: MatzApp()));
 }
 
@@ -17,7 +17,7 @@ class MatzApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MathTutorScreen(),
+      home: SplashScreen(), // Start with the updated SplashScreen
     );
   }
 }
